@@ -133,3 +133,4 @@ STATIC_URL = '/static/'
 
 # After Log In - redirect to the home page
 LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
