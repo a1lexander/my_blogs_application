@@ -38,11 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'allauth',
+    'allauth.account'
+
     # Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
 
 ]
+
+SITE_ID = 1
 
 # Для приложения users
 AUTH_USER_MODEL = 'users.CustomUser'

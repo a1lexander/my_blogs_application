@@ -1,7 +1,10 @@
-version: '3.7'
+version: '3.4'
 services:
   web:
-    build: .
+    image: python3.8:latest
+    build:
+      context: .
+      network: host
     command: python /code/manage.py runserver 0.0.0.0:8000
 #    command: gunicorn bookstore_project.wsgi -b 0.0.0.0:8000
 #    environment:
@@ -17,6 +20,8 @@ services:
     depends_on:
       - db
 
+
+
   db:
     image: "postgres:12.2"
     environment:
@@ -26,3 +31,5 @@ services:
 
 volumes:
   postgres_data:
+
+
