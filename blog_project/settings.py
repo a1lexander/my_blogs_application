@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'blogs.apps.BlogsConfig',
 
 ]
 
@@ -155,6 +156,14 @@ AUTHENTICATION_BACKENDS = (
 
 # SMTP
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# ACCOUNT_ACTIVATION_DAYS=7
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'a1lehander1@gmail.com'
+EMAIL_HOST_PASSWORD = 'a1706020331081957'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'a1lehander1@gmail.com'
 
 # django-allauth -> always remembers log in
 ACCOUNT_SESSION_REMEMBER = True

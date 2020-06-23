@@ -1,5 +1,5 @@
 # Pull base image
-FROM python:3.8
+FROM python:3.8.2
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -10,7 +10,8 @@ WORKDIR /code
 
 # Install dependencies, --system - означает, что наши пакеты доступны во всем docker
 COPY Pipfile Pipfile.lock /code/
-RUN pip install pipenv && pipenv install --system
+RUN pip install --upgrade pip
+RUN pip install 'pipenv==2018.11.26' && pipenv install --system
 
 # Copy project
 COPY . /code/
