@@ -26,6 +26,6 @@ urlpatterns = [
 
     # Local apps
     path('', include('pages.urls')),
-    path('blogs/', include('blogs.'))
+    path('blog/', include('blogs.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
