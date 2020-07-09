@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+
+{% block title %}{{ author.last_name }} {{ author.first_name }}{% endblock title %}
+
+{% block content %}
+  <h1><strong>Blogger</strong>: {{ author.last_name }} {{ author.first_name }}</h1>
+  <h3><strong>Date of birth:</strong> {{ author.date_of_birth }}</h3>
+  <h3><strong>Date of death:</strong> {{ author.date_of_death }}</h3>
+{#  <div>#}
+{#    <h3><strong>Blogs list</strong></h3>#}
+{#    {% for blog in author.blog_set.all %}#}
+{#      <li>{{ blog.title }} ({{ blog.published }})</li>#}
+{#    {% endfor %}#}
+{#  </div>#}
+{% endblock %}

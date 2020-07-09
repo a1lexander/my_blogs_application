@@ -4,7 +4,7 @@
 
 {% block content %}
   <h1>All bloggers</h1>
-  {% for blogger in object_list %}
-    <li>{{ blogger.last_name }} {{ blogger.first_name }}</li>
+  {% for blogger in blogger_list %}
+    <li><a href="{{ blogger.get_absolute_url }}">{{ blogger.last_name }} {{ blogger.first_name }}</a></li>
   {% endfor %}
 {% endblock %}
