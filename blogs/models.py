@@ -45,11 +45,20 @@ class Author(models.Model):
         return reverse('author_detail', args=[str(self.id)])
 
 
-# class Comment(models.Model):
-#     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='reviews',)
-#     comment = models.CharField(max_length=350,
-#                                help_text='Leave a comment in language (e.g. English, French, Japanese, Russian, Ukrainian etc.)')
-#     commentator = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,)
-#
-#     def __str__(self):
-#         return self.review
+class BlogComment(models.Model):
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    description = models.TextField(max_length=1000,
+                               help_text='Leave a comment in language (e.g. English, French, Japanese, Russian, Ukrainian etc.)')
+    author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
+    post_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['post_date']
+
+    def __str__(self):
+        len_title=75
+        if len(self.comment)>len_title:
+            titlestring=self.comment[:len_title] + '...'
+        else:
+            titlestring=self.comment
+        return titlestring
