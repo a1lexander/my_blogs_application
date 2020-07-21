@@ -41,7 +41,7 @@ class BlogCommentCreate(LoginRequiredMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        form.instance.author = self.request.get_user_model()
+        form.instance.author = self.request.user
         form.instance.blog = get_object_or_404(Blog, pk = self.kwargs['pk'])
         return super(BlogCommentCreate, self).form_valid(form)
 
