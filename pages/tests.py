@@ -3,6 +3,7 @@ from django.urls import reverse, resolve
 
 from .views import HomePageView
 
+# SimpleTestCase - подмножество TestCase - м не включена модель!!!
 # setUp - вспомогательный метод
 class HomepageTests(SimpleTestCase):
 

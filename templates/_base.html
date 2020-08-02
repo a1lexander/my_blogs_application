@@ -22,7 +22,14 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'blog_list' %}">All blogs</a></li>
             <li><a href="{% url 'blogger_list' %}">All bloggers</a></li>
-            <li style="margin-top: 25px"><a href="">Login</a></li>
+{#            <li style="margin-top: 25px"><a href="{% url 'account_login' %}">Login</a></li>#}
+{#            <li><a href="{% url 'account_signup' %}">Sign Up</a></li>#}
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'account_logout' %}">Log Out</a></li>
+            {% else %}
+              <li><a href="{% url 'account_login' %}">Log In</a></li>
+              <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+            {% endif %}
           </ul>
         {% endblock %}
       </div>
