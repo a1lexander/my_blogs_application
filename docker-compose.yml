@@ -7,16 +7,17 @@ services:
       network: host
     command: python /code/manage.py runserver 0.0.0.0:8000
 #    command: gunicorn bookstore_project.wsgi -b 0.0.0.0:8000
-#    environment:
+    environment:
 #      - ENVIRONMENT=development
-#      - SECRET_KEY=54j3zml^c46n2ok@)-7c#(c5c8_tf1b^jfq58p9!&wvu!^1747
-#      - DEBUG=1
+
 #      - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_xKKjVDi1Trw7NiHaEHFYzlFm00LSuyhmr3
 #      - STRIPE_TEST_SECRET_KEY=sk_test_oaZ1SRN2IMWEWO29ckbUya6G00CQi0RdB1
     volumes:
       - .:/code
     ports:
       - "8000:8000"
+    env_file:
+      - ./.env.dev
     depends_on:
       - db
 

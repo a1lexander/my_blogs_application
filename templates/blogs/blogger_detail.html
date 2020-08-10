@@ -4,12 +4,12 @@
 
 {% block content %}
   <h1><strong>Blogger</strong>: {{ author.last_name }} {{ author.first_name }}</h1>
-  <h3><strong>Date of birth:</strong> {{ author.date_of_birth }}</h3>
-  <h3><strong>Date of death:</strong> {{ author.date_of_death }}</h3>
+  <h5>Date of birth: {{ author.date_of_birth }}</h5>
+  <h5>Date of death: {{ author.date_of_death }}</h5>
   <div>
-    <h3><strong>Blogs list</strong></h3>
+    <h5>Blogs list</h5>
     {% for blog in author.blog_set.all %}
-      <li>{{ blog.title }} ({{ blog.published }})</li>
+      <li class="ml-4"><a href="{{ blog.get_absolute_url }}">{{ blog.title }} ({{ blog.published }})</a></li>
     {% endfor %}
   </div>
 {% endblock %}

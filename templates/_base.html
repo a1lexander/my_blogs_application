@@ -25,7 +25,7 @@
 {#            <li style="margin-top: 25px"><a href="{% url 'account_login' %}">Login</a></li>#}
 {#            <li><a href="{% url 'account_signup' %}">Sign Up</a></li>#}
             {% if user.is_authenticated %}
-              <li><a href="{% url 'account_logout' %}">Log Out</a></li>
+              <li class="mt-2"><a href="{% url 'account_logout' %}">Log Out</a></li>
             {% else %}
               <li><a href="{% url 'account_login' %}">Log In</a></li>
               <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
